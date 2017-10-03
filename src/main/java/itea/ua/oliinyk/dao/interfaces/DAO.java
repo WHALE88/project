@@ -10,6 +10,8 @@ public interface DAO<E extends ShopEntity> {
 	void delete(Class<E> entityClass, int id);
 
 	E getEntityById(Class<E> entityClass, int id);
+	
+	E getEntityById(Class<E> entityClass, String id);
 
 	List<E> getListAll(Class<E> entityClass);
 

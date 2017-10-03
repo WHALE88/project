@@ -23,11 +23,7 @@ import itea.ua.oliinyk.entity.categories.Upper_Material;
 @Entity
 @Table(name = "products")
 @NamedQueries({ @NamedQuery(name = "Product.All", query = "SELECT products FROM Product products"),
-		/*
-		 * @NamedQuery(name = "Product.getProductsByCategory", query =
-		 * "SELECT products FROM Product products WHERE products.category_id = :category"
-		 * )
-		 */ })
+		@NamedQuery(name = "Product.getProdByGender", query = "SELECT products FROM Product products WHERE products.gender_id = :gender") })
 public class Product implements ShopEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -63,7 +59,7 @@ public class Product implements ShopEntity {
 
 	@Column(name = "price", nullable = false)
 	private Integer price;
-	
+
 	public Product() {
 	}
 
@@ -215,7 +211,5 @@ public class Product implements ShopEntity {
 			return false;
 		return true;
 	}
-	
-	
-	
+
 }

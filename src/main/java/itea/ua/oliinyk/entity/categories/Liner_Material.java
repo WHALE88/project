@@ -15,11 +15,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import itea.ua.oliinyk.entity.Product;
+import itea.ua.oliinyk.entity.ShopEntity;
 
 @Entity
 @Table(name = "liner_materials")
 @NamedQueries({ @NamedQuery(name = "Liner_Material.All", query = "SELECT lm FROM Liner_Material lm") })
-public class Liner_Material {
+public class Liner_Material implements ShopEntity{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,6 +39,11 @@ public class Liner_Material {
 
 	public void setLiner_material(String liner_material) {
 		this.liner_material = liner_material;
+	}
+
+	@Override
+	public Integer getId() {
+		return null;
 	}
 
 }

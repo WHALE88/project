@@ -53,6 +53,12 @@ public abstract class AbstractDAO<E extends ShopEntity> implements DAO<E> {
 		E entity = getEntityManager().find(entityClass, id);
 		return entity;
 	}
+	
+	@Override
+	public E getEntityById(Class<E> entityClass, String id) {
+		E entity = getEntityManager().find(entityClass, id);
+		return entity;
+	}
 
 	@Override
 	public List<E> getListAll(Class<E> entityClass) {

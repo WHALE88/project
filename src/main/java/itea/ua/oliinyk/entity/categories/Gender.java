@@ -15,11 +15,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import itea.ua.oliinyk.entity.Product;
+import itea.ua.oliinyk.entity.ShopEntity;
 
 @Entity
 @Table(name = "gender")
 @NamedQueries({ @NamedQuery(name = "Gender.All", query = "SELECT g FROM Gender g") })
-public class Gender {
+public class Gender implements ShopEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,5 +39,10 @@ public class Gender {
 
 	public void setGenders(String genders) {
 		this.genders = genders;
+	}
+
+	@Override
+	public Integer getId() {
+		return null;
 	}
 }
