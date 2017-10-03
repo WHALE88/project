@@ -10,10 +10,10 @@ public class ProductDAO extends AbstractDAO<Product> {
 		super();
 	}
 
-	public List<Product> getProductsByGender(String gender) {
+/*	public List<Product> getProductsByGender(String gender) {
 		List<Product> result = getEntityManager().createNamedQuery("Product.getProdByGender", Product.class)
 				.setParameter("gender", gender).getResultList();
 		return result;
-	}
+	}*/
 
 }
