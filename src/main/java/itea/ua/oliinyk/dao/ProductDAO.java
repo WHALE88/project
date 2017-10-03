@@ -1,7 +1,5 @@
 package itea.ua.oliinyk.dao;
 
-import java.util.List;
-
 import itea.ua.oliinyk.entity.Product;
 
 public class ProductDAO extends AbstractDAO<Product> {

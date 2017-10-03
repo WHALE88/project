@@ -25,7 +25,19 @@
             <div class="col col_2 product_detail">
             	<h1>О продукте</h1>
 				<p>Артикул: ${product.id}</p>
-                <p>Размер: ${product.size.size}</p>
+          <!--        <p>Размер: ${product.size}</p>-->
+                 <p>Размер:
+	                <c:forEach items="${product.size}" var="prod">
+						  ${prod.size}
+					</c:forEach>
+				</p>
+				<select id="mySelectSize">
+					<option></option>
+					 <c:forEach items="${product.size}" var="prod">
+						<option value="${prod.size}">${prod.size}</option>
+					</c:forEach>
+				</select>
+				
 				<p>Бренд: ${product.brand.brand}</p>
 				<p>Модель: ${product.model}</p>
 				<p>Пол: ${product.genders.genders}</p>
@@ -42,7 +54,7 @@
 														<div class="prodId">${product.id}</div>
 														<div class="prodBrand">${product.brand.brand}</div>
 														<div class="prodModel">${product.model}</div>
-														<div class="prodSize">${product.size.size}</div>
+										<!--  -->				<div class="prodSize">${product.size.size}</div>
 														<div class="prodSex">${product.genders.genders}</div>
 														<div class="prodLin">${product.liner_material.liner_material}</div>
 														<div class="prodUpp">${product.upper_material.upper_material}</div>
