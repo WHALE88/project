@@ -132,6 +132,11 @@ http://www.tooplate.com/view/2062-clothing
                         </c:choose>
                     </span>
                     <span>| ${user.login}</span>
+                     <span>|
+                     <a href="?lang=en">en</a>
+                     <a href="?lang=ru">ru</a>
+                     <a href="?lang=ua">ua</a>
+                     </span>
 				</p>
 
 				<div id="tooplate_search">
