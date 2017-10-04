@@ -10,37 +10,37 @@ import itea.ua.oliinyk.validation.myannotation.MyCaseMode;
 
 public class RegValidator extends LogValidator {
 	
-	@NotNull(message = "Empty email")
+	@NotNull(message = "{email_field.empty.error}")
 	@CheckCase(MyCaseMode.BACKSPACE)
 	@Pattern(regexp = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-			+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$", message = "Bad email address")
+			+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$", message = "{email.bad.error}")
 	private String email;
 	
-	@NotNull(message = "Empty retype password")
+	@NotNull(message = "{retype_password.empty.error}")
 	private String retypePassword;
 
-	@NotNull(message = "Empty name")
+	@NotNull(message = "{name_field.empty.error}")
 	@CheckCase(MyCaseMode.BACKSPACE)
 	private String name;
 
 	@List({ @Size(min = 10),
-		@Size(max = 11, message = "Invalid phonenumber") })
-	@NotNull(message = "Empty phonenumber")
+		@Size(max = 11, message = "{phonenumber.invalid.error}") })
+	@NotNull(message = "{phonenumber.empty.error}")
 	@CheckCase(MyCaseMode.EMPTY)
 	private String phonenumber;
 
-	@NotNull(message = "Empty region")
+	@NotNull(message = "{region.empty.error}")
 	@CheckCase(MyCaseMode.EMPTY)
 	private String region;
 
-	@NotNull(message = "Empty feedback")
+	@NotNull(message = "{feedback.empty.error}")
 	@CheckCase(MyCaseMode.EMPTY)
 	private String feedback;
 
-	@NotNull(message = "Empty gender")
+	@NotNull(message = "{gender.empty.error}")
 	private String gender;
 
-	@NotNull(message = "Empty agreement")
+	@NotNull(message = "{Empty agreement}")
 	private boolean agreement;
 
 	public RegValidator() {
