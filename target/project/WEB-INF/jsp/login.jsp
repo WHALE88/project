@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,20 +28,20 @@
 <div id="tooplate_wrapper">
 <div id="tooplate_main"><span class="main_border main_border_t"></span><span class="main_border main_border_b"></span>
     	<div class="col col_1">
-            <h1>Авторизация</h1>
+            <h1><spring:message code="authorization"/></h1>
             
-			<h3>Введите данные</h3> 
+			<h3><spring:message code="enter_data"/></h3> 
 		</div>
         <div class="col col_2">
 			<form:form method="POST" commandName="validator" action="login">
 							<table>
 								<tr>
-									<td><label>Login:</label> </td>
+									<td><label><spring:message code="login"/>:</label> </td>
 									<td><form:input path="login" name="login" id="login" /></td>
 									<td><form:errors path="login" /></td>
 								</tr>
 								<tr>
-									<td><label>Password:</label></td>
+									<td><label><spring:message code="password"/>:</label></td>
 									<td><form:password path="password" name="password"
 											id="password" onkeyup="doAjax()" /></td>
 									<td><form:errors path="password" /> 

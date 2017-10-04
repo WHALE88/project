@@ -29,7 +29,7 @@ public class CheckCaseValidator implements ConstraintValidator<CheckCase, String
 				isValid = true;
 			}
 			constraintContext.disableDefaultConstraintViolation();
-			constraintContext.buildConstraintViolationWithTemplate("Is Empty").addConstraintViolation();
+			constraintContext.buildConstraintViolationWithTemplate("{my.empty.error}").addConstraintViolation();
 			return isValid;
 		}
 
@@ -42,7 +42,7 @@ public class CheckCaseValidator implements ConstraintValidator<CheckCase, String
 				}
 			}
 			constraintContext.disableDefaultConstraintViolation();
-			constraintContext.buildConstraintViolationWithTemplate("No Upper case letter").addConstraintViolation();
+			constraintContext.buildConstraintViolationWithTemplate("{my.upper_case.error}").addConstraintViolation();
 			return isValid;
 		}
 		if (caseMode == MyCaseMode.LOWER) {
@@ -53,7 +53,7 @@ public class CheckCaseValidator implements ConstraintValidator<CheckCase, String
 					return isValid;
 				}
 			}
-			constraintContext.buildConstraintViolationWithTemplate("No Lower case letter").addConstraintViolation();
+			constraintContext.buildConstraintViolationWithTemplate("{my.lower_case.error}").addConstraintViolation();
 			return isValid;
 		}
 		if (caseMode == MyCaseMode.DIGIT) {
@@ -64,14 +64,14 @@ public class CheckCaseValidator implements ConstraintValidator<CheckCase, String
 					return isValid;
 				}
 			}
-			constraintContext.buildConstraintViolationWithTemplate("No digit").addConstraintViolation();
+			constraintContext.buildConstraintViolationWithTemplate("{my.digit.error}").addConstraintViolation();
 			return isValid;
 		}
 		if (caseMode == MyCaseMode.BACKSPACE) {
 			charChain = object.toCharArray();
 			for (char pass : charChain) {
 				if (Character.isWhitespace(pass)) {
-					constraintContext.buildConstraintViolationWithTemplate("Backspace mistake")
+					constraintContext.buildConstraintViolationWithTemplate("{my.backspace.error}")
 							.addConstraintViolation();
 					isValid = false;
 					return isValid;

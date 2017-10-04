@@ -25,19 +25,11 @@
             <div class="col col_2 product_detail">
             	<h1>О продукте</h1>
 				<p>Артикул: ${product.id}</p>
-          <!--        <p>Размер: ${product.size}</p>-->
-                 <p>Размер:
+                <p>Размер:
 	                <c:forEach items="${product.size}" var="prod">
 						  ${prod.size}
 					</c:forEach>
 				</p>
-				<select class="prodSize" id="mySelectSize">
-					<option></option>
-					 <c:forEach items="${product.size}" var="prod">
-						<option value="${prod.size}">${prod.size}</option>
-					</c:forEach>
-				</select>
-				
 				<p>Бренд: ${product.brand.brand}</p>
 				<p>Модель: ${product.model}</p>
 				<p>Пол: ${product.genders.genders}</p>
@@ -48,21 +40,28 @@
               <p class="price">${product.price} грн<span>Наличие: <strong>В наличии</strong></span></p>
                 <div class="clear h20"></div>
               <p class="add_to_cart">Quantity <input type="text" value="1" style="width: 20px; text-align: right" /></p>
+            		<div class="prodSize">
+	            		<select id="mySelectSize">
+							<option></option>
+							<c:forEach items="${product.size}" var="prod">
+								<option value="${prod.size}">${prod.size}</option>
+							</c:forEach>
+						</select>
+					</div>
             		<button class="add-to-cart" id="add-to-cart" href="">
-												ДОБАВИТЬ В КОРЗИНУ <i class="cart">
-													<div hidden class="hide product">
-														<div class="prodId">${product.id}</div>
-														<div class="prodBrand">${product.brand.brand}</div>
-														<div class="prodModel">${product.model}</div>
-														
-														<div class="prodSex">${product.genders.genders}</div>
-														<div class="prodLin">${product.liner_material.liner_material}</div>
-														<div class="prodUpp">${product.upper_material.upper_material}</div>
-														<div class="prodCateg">${product.categories.categories}</div>
-														<div class="prodPrice">${product.price}</div>
-													</div>
-												</i>
-											</button>
+							ДОБАВИТЬ В КОРЗИНУ <i class="cart">
+							<div hidden class="hide product">
+								<div class="prodId">${product.id}</div>
+								<div class="prodBrand">${product.brand.brand}</div>
+								<div class="prodModel">${product.model}</div>
+								<div class="prodSex">${product.genders.genders}</div>
+								<div class="prodLin">${product.liner_material.liner_material}</div>
+								<div class="prodUpp">${product.upper_material.upper_material}</div>
+								<div class="prodCateg">${product.categories.categories}</div>
+								<div class="prodPrice">${product.price}</div>
+							</div>
+						</i>
+					</button>
 			</div>
 			
             <div class="">

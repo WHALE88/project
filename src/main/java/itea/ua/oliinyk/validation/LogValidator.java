@@ -9,14 +9,14 @@ import itea.ua.oliinyk.validation.myannotation.MyCaseMode;
 
 public class LogValidator {
 	@CheckCase(MyCaseMode.BACKSPACE)
-	@NotNull(message = "Empty login")
+	@NotNull(message = "{login.empty.error}")
 	@CheckCase(MyCaseMode.EMPTY)
 	private String login;
 
-	@NotNull(message = "Empty password")
+	@NotNull(message = "{password.empty.error}")
 	@CheckCase(MyCaseMode.EMPTY)
-	@List({ @Size(min = 6, message = "Password must be at least 6 characters long"),
-			@Size(max = 20, message = "Password must contain no more than 20 characters") })
+	@List({ @Size(min = 6, message = "{password.min_length.error}"),
+			@Size(max = 20, message = "{password.max_length.error}") })
 	@CheckCase(MyCaseMode.UPPER)
 	@CheckCase(MyCaseMode.LOWER)
 	@CheckCase(MyCaseMode.BACKSPACE)
