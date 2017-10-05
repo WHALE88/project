@@ -54,6 +54,7 @@
 								<div class="prodId">${product.id}</div>
 								<div class="prodBrand">${product.brand.brand}</div>
 								<div class="prodModel">${product.model}</div>
+								<div class="prodSize">$("#myselect").val()</div>
 								<div class="prodSex">${product.genders.genders}</div>
 								<div class="prodLin">${product.liner_material.liner_material}</div>
 								<div class="prodUpp">${product.upper_material.upper_material}</div>

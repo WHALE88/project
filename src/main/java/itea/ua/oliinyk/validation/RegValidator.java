@@ -40,7 +40,7 @@ public class RegValidator extends LogValidator {
 	@NotNull(message = "{gender.empty.error}")
 	private String gender;
 
-	@NotNull(message = "{Empty agreement}")
+	@NotNull(message = "{agreement.empty.error}")
 	private boolean agreement;
 
 	public RegValidator() {

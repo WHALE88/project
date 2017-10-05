@@ -1,8 +1,12 @@
 package itea.ua.oliinyk.controllers;
 
+import java.util.Locale;
+
 import javax.persistence.NoResultException;
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 //import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -13,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
 
 import itea.ua.oliinyk.dao.UserDAO;
 import itea.ua.oliinyk.entity.User;
@@ -25,9 +30,14 @@ public class LoginController {
 
 	private static final int WEAK = 10;
 	private static final int STRONG = 15;
+	
+	@Autowired
+	private MessageSource messageSource;
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String doGetPage(ModelMap model) {
+	public String doGetPage(ModelMap model, Locale locale) {
+		locale.getDisplayLanguage();
+		messageSource.getMessage("locale", new String[] {locale.getDisplayName(locale)}, locale);
 		String url;
 		LogValidator validator = (LogValidator) model.get("validator");
 		if (validator == null) {
@@ -53,12 +63,15 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String checkUser(@Valid @ModelAttribute("validator") LogValidator validator, BindingResult bindingResult,
+	public ModelAndView checkUser(Locale locale, @Valid @ModelAttribute("validator") LogValidator validator, BindingResult bindingResult,
 			ModelMap model) {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("locale", messageSource.getMessage("locale", new String[] {locale.getDisplayName(locale)}, locale));
+		
 		String url = "login";
 		if (bindingResult.hasErrors()) {
 			url = "login";
-			return url;
+			modelAndView.setViewName(url);
 		}
 		UserDAO userdao = new UserDAO();
 		String password = new MD5().md5Custom(validator.getPassword());
@@ -72,8 +85,8 @@ public class LoginController {
 		if (user != null) {
 			model.addAttribute("user", user);
 			url = "logout";
-			return url;
+			modelAndView.setViewName(url);
 		}
-		return url;
+		return modelAndView;
 	}
 }
