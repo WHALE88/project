@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +14,7 @@
 <div id="tooplate_wrapper">
     <div id="tooplate_main"><span class="main_border main_border_t"></span><span class="main_border main_border_b"></span>
     	<div class="product">
-        	<h1>Products</h1>			
+        	<h1><spring:message code="products"/></h1>			
 			<c:forEach items="${products}" var="product">
 				 <div class="product_box">
             			<div class="img_box"><span></span>

@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,16 +18,16 @@
 				class="main_border main_border_b"></span>
 
 			<div id="content">
-				<h1>Tовары в корзине</h1>
+				<h1><spring:message code="it_in_cart"/></h1>
 
 				<table width="580px" cols="0" cellspacing="0" cellpadding="5">
 					<tr bgcolor="#ddd">
-						<th width="220" align="left">Рисунок</th>
-						<th width="100" align="left">Модель</th>
-						<th width="80" align="center">Размер</th>
-						<th width="100" align="center">Количество</th>
-						<th width="60" align="right">Цена</th>
-						<th width="60" align="right">Сума</th>
+						<th width="220" align="left"><spring:message code="image"/></th>
+						<th width="100" align="left"><spring:message code="model"/></th>
+						<th width="80" align="center"><spring:message code="size"/></th>
+						<th width="100" align="center"><spring:message code="quantity"/></th>
+						<th width="60" align="right"><spring:message code="price"/></th>
+						<th width="60" align="right"><spring:message code="sum"/></th>
 						<th width="90"></th>
 
 					</tr>
@@ -48,7 +48,7 @@
 								<td align="center">
 									<button type="button" name="remove">
 										<img src="resources/images/remove.png" alt="remove" />
-									</button> <br />Remove
+									</button> <br /><spring:message code="remove"/>
 								</td>
 							</tr>
 						</c:forEach>
@@ -76,7 +76,7 @@
 
 			<div id="sidebar">
 				<div class="sidebar_section sidebar_section_bg">
-					<h3>Popular Products</h3>
+					<h3><spring:message code="recommended_products"/></h3>
 					<ul class="sidebar_link_list popular_products">
 						<li><img src="images/product/01_xs.jpg" align="image" /> <span
 							class="title"><a href="#">Donec tincidunt hendrerit</a></span> <span

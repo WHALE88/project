@@ -32,7 +32,6 @@ function sendProductToCart(url, productJson) {
 }
 
 $(function () {
-
     $(".add-to-cart").each(function () {
         $(this).click(
             function (e) {
@@ -40,5 +39,4 @@ $(function () {
                 sendProductToCart("addTocart", getProductJson($(this)));
             });
     });
-
 });

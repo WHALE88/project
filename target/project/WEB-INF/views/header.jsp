@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Clothing Template, free HTML CSS template</title>
+<title>Oliinyk Store</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -82,22 +83,19 @@ http://www.tooplate.com/view/2062-clothing
 		<div id="tooplate_header">
 			<div id="header_top">
 				<div id="site_title">
-					<a href="#">Clothing Template</a>
+					<a href="#">Oliinyk store</a>
 				</div>
 				<div id="tooplate_menu" class="ddsmoothmenu">
 					<ul>
-						<li><a href="homepage">Главная</a></li>
-						<li><a href="stuff">Товары</a>
+						<li><a href="homepage"><spring:message code="homepage"/></a></li>
+						<li><a href="stuff"><spring:message code="stuff"/></a>
 							<ul>
-								<li><a href="#">Category One</a></li>
-								<li><a href="#">Category Two</a></li>
-								<li><a href="#">Category Three</a></li>
-								<li><a href="#">Category Four</a></li>
-								<li><a href="#">Category Five</a></li>
+								<li><a href="#"><spring:message code="category_one"/></a></li>
+								<li><a href="#"><spring:message code="category_two"/></a></li>
 							</ul></li>
-						<li><a href="about.html">About</a></li>
-						<li><a href="faqs.html">FAQs</a></li>
-						<li><a href="contact.html" class="last">Contact</a></li>
+						<li><a href="#"><spring:message code="about"/></a></li>
+						<li><a href="#"><spring:message code="faqs"/></a></li>
+						<li><a href="#" class="last"><spring:message code="contacts"/></a></li>
 					</ul>
 					<br style="clear: left" />
 				</div>
@@ -107,24 +105,24 @@ http://www.tooplate.com/view/2062-clothing
 
 			<div id="header_bottom">
 				<p>
-					<a href="cart">Корзина</a> |
+					<a href="cart"><spring:message code="cart"/></a> |
 					<c:choose>
 						<c:when test="${empty user}">
-							<a href="registration">Регистрация</a> |
-		            <a href="login">Авторизация</a> |
+							<a href="registration"><spring:message code="registration"/></a> |
+		            <a href="login"><spring:message code="authorization"/></a> |
 		        </c:when>
 						<c:otherwise>
-							<a href="myaccount">Профиль</a> |
-		            <a href="logout">Выход</a> |
+							<a href="myaccount"><spring:message code="profile"/></a> |
+		            <a href="logout"><spring:message code="logout"/></a> |
 		        </c:otherwise>
 					</c:choose>
-					<span>| Товаров в корзине </span>
+					<span>| <spring:message code="totalItemsCart"/> </span>
 					<span class="totalItemsCart"> <c:choose>
 						<c:when test="${not empty cart}">[ ${cart.totalItems} ]</c:when>
 							<c:otherwise>[ 0 ]</c:otherwise>
 						</c:choose>
 					</span>
-					<span>| На  сумму</span>
+					<span>| <spring:message code="totalAmountCart"/></span>
 					<span class="totalAmountCart">
                         <c:choose>
                             <c:when test="${not empty cart}">${cart.totalAmount}</c:when>

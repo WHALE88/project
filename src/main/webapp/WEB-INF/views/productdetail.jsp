@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,23 +24,23 @@
                 <div class="clear"></div>
             </div>
             <div class="col col_2 product_detail">
-            	<h1>О продукте</h1>
-				<p>Артикул: ${product.id}</p>
-                <p>Размер:
+            	<h1><spring:message code="aboutProduct"/></h1>
+				<p><spring:message code="article_number"/>: ${product.id}</p>
+                <p><spring:message code="size"/>:
 	                <c:forEach items="${product.size}" var="prod">
 						  ${prod.size}
 					</c:forEach>
 				</p>
-				<p>Бренд: ${product.brand.brand}</p>
-				<p>Модель: ${product.model}</p>
-				<p>Пол: ${product.genders.genders}</p>
-				<p>Материл верха: ${product.upper_material.upper_material}</p>
-				<p>Материал подкладки: ${product.liner_material.liner_material}</p>
-				<p>Тип обуви: ${product.categories.categories}</p>
+				<p><spring:message code="brand"/>: ${product.brand.brand}</p>
+				<p><spring:message code="model"/>: ${product.model}</p>
+				<p><spring:message code="gender"/>: ${product.genders.genders}</p>
+				<p><spring:message code="upper_material"/>: ${product.upper_material.upper_material}</p>
+				<p><spring:message code="liner_material"/>: ${product.liner_material.liner_material}</p>
+				<p><spring:message code="type"/>: ${product.categories.categories}</p>
                 <div class="clear h20"></div>
-              <p class="price">${product.price} грн<span>Наличие: <strong>В наличии</strong></span></p>
+              <p class="price">${product.price} грн<span><spring:message code="availability"/>:<strong>В наличии</strong></span></p>
                 <div class="clear h20"></div>
-              <p class="add_to_cart">Quantity <input type="text" value="1" style="width: 20px; text-align: right" /></p>
+              <p class="add_to_cart"><spring:message code="quantity"/><input type="text" value="1" style="width: 20px; text-align: right" /></p>
             		<div class="prodSize">
 	            		<select id="mySelectSize">
 							<option></option>
@@ -49,7 +50,7 @@
 						</select>
 					</div>
             		<button class="add-to-cart" id="add-to-cart" href="">
-							ДОБАВИТЬ В КОРЗИНУ <i class="cart">
+							<spring:message code="add_to_cart"/><i class="cart">
 							<div hidden class="hide product">
 								<div class="prodId">${product.id}</div>
 								<div class="prodBrand">${product.brand.brand}</div>
@@ -74,7 +75,7 @@
         <hr />
         
         <div class="product">
-        	<h2>Recommended Products</h2>
+        	<h2><spring:message code="recommended_products"/></h2>
             <div class="product_box">
             	<div class="img_box"><span></span>
 	                <a href="productdetail.html"><img src="images/product/01.jpg" alt="image" /></a>
