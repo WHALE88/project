@@ -41,15 +41,17 @@
               <p class="price">${product.price} грн<span><spring:message code="availability"/>:<strong>В наличии</strong></span></p>
                 <div class="clear h20"></div>
               <p class="add_to_cart"><spring:message code="quantity"/><input type="text" value="1" style="width: 20px; text-align: right" /></p>
-            		<div class="prodSize">
-	            		<select id="mySelectSize">
-							<option></option>
+            		
+	              		<select id="selectSize">
+							<option value="0"></option>
 							<c:forEach items="${product.size}" var="prod">
 								<option value="${prod.size}">${prod.size}</option>
 							</c:forEach>
-						</select>
-					</div>
-            		<button class="add-to-cart" id="add-to-cart" href="">
+						</select> 
+						
+						<p>SIZE: <span class="prodSize"></span></p>
+				
+            		<button class="add-to-cart" id="add-to-cart" disabled>
 							<spring:message code="add_to_cart"/><i class="cart">
 							<div hidden class="hide product">
 								<div class="prodId">${product.id}</div>
@@ -64,6 +66,7 @@
 							</div>
 						</i>
 					</button>
+					
 			</div>
 			
             <div class="">

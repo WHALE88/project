@@ -1,6 +1,5 @@
 /* add to cart */
 function getProductJson(element) {
-
     var product = new Object();
     product.id = $(element).find('.prodId').text();
     product.brand = $(element).find('.prodBrand').text();

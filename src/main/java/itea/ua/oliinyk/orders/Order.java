@@ -171,17 +171,12 @@ public class Order implements ShopEntity {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((date == null) ? 0 : date.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((product_brand == null) ? 0 : product_brand.hashCode());
 		result = prime * result + product_id;
 		result = prime * result + ((product_model == null) ? 0 : product_model.hashCode());
 		result = prime * result + ((product_price == null) ? 0 : product_price.hashCode());
-		result = prime * result + ((product_quantity == null) ? 0 : product_quantity.hashCode());
 		result = prime * result + product_size;
-		result = prime * result + ((user_email == null) ? 0 : user_email.hashCode());
-		result = prime * result + ((user_phonenumber == null) ? 0 : user_phonenumber.hashCode());
-		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
 	}
 
@@ -194,11 +189,6 @@ public class Order implements ShopEntity {
 		if (getClass() != obj.getClass())
 			return false;
 		Order other = (Order) obj;
-		if (date == null) {
-			if (other.date != null)
-				return false;
-		} else if (!date.equals(other.date))
-			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -221,27 +211,7 @@ public class Order implements ShopEntity {
 				return false;
 		} else if (!product_price.equals(other.product_price))
 			return false;
-		if (product_quantity == null) {
-			if (other.product_quantity != null)
-				return false;
-		} else if (!product_quantity.equals(other.product_quantity))
-			return false;
 		if (product_size != other.product_size)
-			return false;
-		if (user_email == null) {
-			if (other.user_email != null)
-				return false;
-		} else if (!user_email.equals(other.user_email))
-			return false;
-		if (user_phonenumber == null) {
-			if (other.user_phonenumber != null)
-				return false;
-		} else if (!user_phonenumber.equals(other.user_phonenumber))
-			return false;
-		if (username == null) {
-			if (other.username != null)
-				return false;
-		} else if (!username.equals(other.username))
 			return false;
 		return true;
 	}

@@ -30,9 +30,13 @@ http://www.tooplate.com/view/2062-clothing
 </script>
 
 <!--Подключаем библиотеку jQuery-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
+	  src="https://code.jquery.com/jquery-3.2.1.js"
+	  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+	  crossorigin="anonymous">
+ </script>
+ 		
 <script type="text/javascript">
 	ddsmoothmenu.init({
 		mainmenuid : "tooplate_menu", //menu DIV id
@@ -46,6 +50,8 @@ http://www.tooplate.com/view/2062-clothing
 <link href="<c:url value="resources/css/jquery.dualSlider.0.2.css" />"
 	rel="stylesheet" type="text/css" media="all" />
 
+<script src="<c:url value="resources/js/size.js" />"
+	type="text/javascript"></script>
 <script src="<c:url value="resources/js/cart.js" />"
 	type="text/javascript"></script>
 <script src="<c:url value="resources/js/jquery-1.3.2.min.js" />"
