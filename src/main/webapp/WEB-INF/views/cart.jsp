@@ -46,8 +46,15 @@
 								<td align="right">${product.product_price}</td>
 								<td align="right">${product.product_price * product.product_quantity}</td>
 								<td align="center">
-									<button type="button" name="remove">
+									<button type="button" name="remove" class="remove-stuff">
 										<img src="resources/images/remove.png" alt="remove" />
+										<div style="visibility: hidden">
+											<div class="prodId">${product.product_id}</div>
+											<div class="prodBrand">${product.product_brand}</div>
+											<div class="prodModel">${product.product_model}</div>
+											<div class="prodSize">${product.product_size}</div>
+											<div class="prodPrice">${product.product_price}</div>
+										</div>
 									</button> <br /><spring:message code="remove"/>
 								</td>
 							</tr>

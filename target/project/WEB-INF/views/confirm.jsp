@@ -30,6 +30,7 @@
             <h1>Message</h1>
             
 			<h3>${message}</h3> 
+			
 		</div>
      
         <div class="clear"></div>

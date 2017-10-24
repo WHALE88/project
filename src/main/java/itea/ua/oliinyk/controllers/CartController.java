@@ -17,11 +17,10 @@ import itea.ua.oliinyk.entity.User;
 import itea.ua.oliinyk.orders.Order;
 
 @Controller
-@RequestMapping("/addTocart")
 @SessionAttributes("cart")
 public class CartController {
 
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(value = "/addTocart", method = RequestMethod.POST)
 	@ResponseBody
 	public String addProductToCart(ModelMap model, @RequestParam("product") String json) {
 
@@ -42,10 +41,10 @@ public class CartController {
 		order_product.setProduct_size(jsonObj.getInt("size"));
 		order_product.setProduct_price(jsonObj.getInt("price"));
 		order_product.setDate(formatForDateNow.format(dateNow));
-		if(user != null) {
+		if (user != null) {
 			order_product.setUsername(user.getName());
 			order_product.setUser_email(user.getEmail());
-			order_product.setUser_phonenumber(user.getPhonenumber()); 
+			order_product.setUser_phonenumber(user.getPhonenumber());
 		}
 
 		if (cart.getProducts().contains(order_product)) {
@@ -57,6 +56,31 @@ public class CartController {
 		}
 
 		model.addAttribute("cart", cart);
+
+		JSONObject response = new JSONObject();
+		response.put("totalItems", cart.getTotalItems());
+		response.put("totalAmount", cart.getTotalAmount());
+
+		return response.toString();
+	}
+
+	@RequestMapping(value = "/removeFromCart", method = RequestMethod.POST)
+	@ResponseBody
+	public String deleteProductFromCart(ModelMap model, @RequestParam("product") String json) {
+
+		Cart cart = (Cart) model.get("cart");
+		Order order_product = new Order();
+
+		JSONObject jsonObj = new JSONObject(json);
+		order_product.setProduct_id(jsonObj.getInt("id"));
+		order_product.setProduct_brand(jsonObj.getString("brand"));
+		order_product.setProduct_model(jsonObj.getString("model"));
+		order_product.setProduct_size(jsonObj.getInt("size"));
+		order_product.setProduct_price(jsonObj.getInt("price"));
+
+		if (cart.getProducts().contains(order_product)) {
+			cart.getProducts().remove(cart.getProducts().indexOf(order_product));
+		}
 
 		JSONObject response = new JSONObject();
 		response.put("totalItems", cart.getTotalItems());
