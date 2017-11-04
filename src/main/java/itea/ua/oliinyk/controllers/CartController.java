@@ -67,10 +67,8 @@ public class CartController {
 	@RequestMapping(value = "/removeFromCart", method = RequestMethod.POST)
 	@ResponseBody
 	public String deleteProductFromCart(ModelMap model, @RequestParam("product") String json) {
-
 		Cart cart = (Cart) model.get("cart");
 		Order order_product = new Order();
-
 		JSONObject jsonObj = new JSONObject(json);
 		order_product.setProduct_id(jsonObj.getInt("id"));
 		order_product.setProduct_brand(jsonObj.getString("brand"));

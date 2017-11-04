@@ -98,8 +98,8 @@ http://www.tooplate.com/view/2062-clothing
 						<li><a href="homepage"><spring:message code="homepage"/></a></li>
 						<li><a href="stuff"><spring:message code="stuff"/></a>
 							<ul>
-								<li><a href="#"><spring:message code="category_one"/></a></li>
-								<li><a href="#"><spring:message code="category_two"/></a></li>
+								<li><a href="for_boy"><spring:message code="category_one"/></a></li>
+								<li><a href="for_girl"><spring:message code="category_two"/></a></li>
 							</ul></li>
 						<li><a href="#"><spring:message code="about"/></a></li>
 						<li><a href="#"><spring:message code="faqs"/></a></li>

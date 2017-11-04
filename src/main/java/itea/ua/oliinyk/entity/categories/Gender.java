@@ -19,7 +19,7 @@ import itea.ua.oliinyk.entity.ShopEntity;
 
 @Entity
 @Table(name = "gender")
-@NamedQueries({ @NamedQuery(name = "Gender.All", query = "SELECT g FROM Gender g") })
+@NamedQueries({ @NamedQuery(name = "Gender.All", query = "SELECT gender FROM Gender gender") })
 public class Gender implements ShopEntity {
 
 	@Id
