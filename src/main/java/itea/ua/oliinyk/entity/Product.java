@@ -28,7 +28,9 @@ import itea.ua.oliinyk.entity.categories.Upper_Material;
 @Entity
 @Table(name = "products")
 @NamedQueries({ @NamedQuery(name = "Product.All", query = "SELECT products FROM Product products"),
-		@NamedQuery(name = "Product.getProdByGender", query = "SELECT products FROM Product products WHERE products.genders = :gender") 
+		@NamedQuery(name = "Product.getProdByGender", query = "SELECT products FROM Product products WHERE products.genders = :gender"),
+		@NamedQuery(name = "Product.getProdByBrand", query = "SELECT products FROM Product products WHERE products.brand = :brand"),
+		@NamedQuery(name = "Product.getProdByGender&Brand", query = "SELECT products FROM Product products WHERE products.brand = :brand AND products.genders = :gender")
 	})
 public class Product implements ShopEntity {
 	@Id

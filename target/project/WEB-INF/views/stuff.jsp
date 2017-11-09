@@ -12,8 +12,9 @@
 <body>
 	<jsp:include page="header.jsp" />
 <div id="tooplate_wrapper">
-    <div id="tooplate_main"><span class="main_border main_border_t"></span><span class="main_border main_border_b"></span>
-    	<div class="product">
+	<jsp:include page="sidebar_filter.jsp" />
+    <div id="stuff_main"><span class="main_border main_border_t"></span><span class="main_border main_border_b"></span>
+    	<div class="stuff">
         	<h1><spring:message code="products"/></h1>			
 			<c:forEach items="${products}" var="product">
 				 <div class="product_box">
