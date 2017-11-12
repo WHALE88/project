@@ -216,4 +216,9 @@ public class Order implements ShopEntity {
 		return true;
 	}
 
+	@Override
+	public String getStringId() {
+		return id.toString();
+	}
+
 }

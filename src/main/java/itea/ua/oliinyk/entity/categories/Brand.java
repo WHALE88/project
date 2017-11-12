@@ -20,7 +20,7 @@ import itea.ua.oliinyk.entity.ShopEntity;
 @Entity
 @Table(name = "brands")
 @NamedQueries({ @NamedQuery(name = "Brand.All", query = "SELECT brand FROM Brand brand") })
-public class Brand implements ShopEntity {
+public class Brand implements ShopEntity, Comparable<Brand> {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,8 +30,17 @@ public class Brand implements ShopEntity {
 	@Column(name = "brand", nullable = false)
 	private String brand;
 
-	@OneToMany(mappedBy = "brand", fetch = FetchType.LAZY, cascade = CascadeType.ALL) // name of variable in the class Product
+	@OneToMany(mappedBy = "brand", fetch = FetchType.LAZY, cascade = CascadeType.ALL) // name of variable in the class
+																						// Product
 	private List<Product> products;
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getId() {
+		return id;
+	}
 
 	public String getBrand() {
 		return brand;
@@ -42,10 +51,13 @@ public class Brand implements ShopEntity {
 	}
 
 	@Override
-	public Integer getId() {
-		return null;
+	public String getStringId() {
+		return id;
 	}
-	
-	
+
+	@Override
+	public int compareTo(Brand brand) {
+		return getBrand().compareTo(brand.getBrand());
+	}
 
 }

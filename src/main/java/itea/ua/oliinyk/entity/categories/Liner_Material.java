@@ -20,7 +20,7 @@ import itea.ua.oliinyk.entity.ShopEntity;
 @Entity
 @Table(name = "liner_materials")
 @NamedQueries({ @NamedQuery(name = "Liner_Material.All", query = "SELECT lm FROM Liner_Material lm") })
-public class Liner_Material implements ShopEntity{
+public class Liner_Material implements ShopEntity, Comparable<Liner_Material>{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,9 +41,24 @@ public class Liner_Material implements ShopEntity{
 		this.liner_material = liner_material;
 	}
 
-	@Override
-	public Integer getId() {
-		return null;
+	public String getId() {
+		return id;
 	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	@Override
+	public String getStringId() {
+		return id;
+	}
+
+	@Override
+	public int compareTo(Liner_Material lm) {
+		return getLiner_material().compareTo(lm.getLiner_material());
+	}
+
+	
 
 }

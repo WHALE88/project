@@ -11,13 +11,16 @@ C:\Users\bigbo\eclipse-workspace\project\src\main\java\itea\ua\oliinyk\controlle
 C:\Users\bigbo\eclipse-workspace\project\src\main\java\itea\ua\oliinyk\dao\BrandDAO.java
 C:\Users\bigbo\eclipse-workspace\project\src\main\java\itea\ua\oliinyk\entity\ShopEntity.java
 C:\Users\bigbo\eclipse-workspace\project\src\main\java\itea\ua\oliinyk\orders\Order.java
+C:\Users\bigbo\eclipse-workspace\project\src\main\java\itea\ua\oliinyk\dao\Upper_Material_DAO.java
 C:\Users\bigbo\eclipse-workspace\project\src\main\java\itea\ua\oliinyk\controllers\ProductController.java
+C:\Users\bigbo\eclipse-workspace\project\src\main\java\itea\ua\oliinyk\dao\Liner_Material_DAO.java
 C:\Users\bigbo\eclipse-workspace\project\src\main\java\itea\ua\oliinyk\entity\Product.java
 C:\Users\bigbo\eclipse-workspace\project\src\main\java\itea\ua\oliinyk\entity\categories\Size.java
 C:\Users\bigbo\eclipse-workspace\project\src\main\java\itea\ua\oliinyk\validation\myannotation\CheckCaseValidator.java
 C:\Users\bigbo\eclipse-workspace\project\src\main\java\itea\ua\oliinyk\controllers\CartController.java
 C:\Users\bigbo\eclipse-workspace\project\src\main\java\itea\ua\oliinyk\dao\AbstractDAO.java
 C:\Users\bigbo\eclipse-workspace\project\src\main\java\itea\ua\oliinyk\validation\myannotation\MyCaseMode.java
+C:\Users\bigbo\eclipse-workspace\project\src\main\java\itea\ua\oliinyk\dao\SizeDAO.java
 C:\Users\bigbo\eclipse-workspace\project\src\main\java\itea\ua\oliinyk\entity\categories\Category.java
 C:\Users\bigbo\eclipse-workspace\project\src\main\java\itea\ua\oliinyk\md5\MD5.java
 C:\Users\bigbo\eclipse-workspace\project\src\main\java\itea\ua\oliinyk\dao\UserDAO.java
@@ -35,3 +38,4 @@ C:\Users\bigbo\eclipse-workspace\project\src\main\java\itea\ua\oliinyk\controlle
 C:\Users\bigbo\eclipse-workspace\project\src\main\java\itea\ua\oliinyk\dao\ProductDAO.java
 C:\Users\bigbo\eclipse-workspace\project\src\main\java\itea\ua\oliinyk\controllers\CartViewController.java
 C:\Users\bigbo\eclipse-workspace\project\src\main\java\itea\ua\oliinyk\dao\interfaces\DAO.java
+C:\Users\bigbo\eclipse-workspace\project\src\main\java\itea\ua\oliinyk\dao\CategoryDAO.java

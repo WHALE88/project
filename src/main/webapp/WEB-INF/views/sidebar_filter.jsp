@@ -13,13 +13,18 @@
             <ul class="stuff_sidebar_menu">
 				<li><a href="gender"><spring:message code="homepage" /></a>
 					<ul>
-						<li><a href="?genderId=boy"><spring:message code="category_one" /></a></li>
-						<li><a href="?genderId=girl"><spring:message code="category_two" /></a></li>
+					<c:forEach items="${gender}" var="genders">
+						<li><a href="?genderId=${genders.id}">${genders.genders}</a></li>
+					</c:forEach>
+					<!-- <li><a href="?genderId=boy"><spring:message code="category_one" /></a></li>
+						 <li><a href="?genderId=girl"><spring:message code="category_two" /></a></li>-->
 					</ul>
 				</li>
 				<li><a href="#">Тип обуви</a>
 					<ul>
-						<li><a href="#">1</a></li>
+						<c:forEach items="${categories}" var="category">
+							<li><a href="?categoryId=${category.id}">${category.categories}</a></li>
+						</c:forEach>
 					</ul>
 				</li>
 				<li><a href="#">Размер</a>
@@ -29,23 +34,28 @@
 				</li>
 				<li><a href="#">Бренд</a>
 					<ul>
-						<li><a href="?brandId=beloli">Beloli-Belali</a></li>
-						<li><a href="?brandId=bg">B&G</a></li>
+						<c:forEach items="${brands}" var="brand">
+							<li><a href="?brandId=${brand.id}">${brand.brand}</a></li>
+						</c:forEach>
 					</ul>
 				</li>
-				<li><a href="#">Сезон</a>
+				<!--  <li><a href="#">Сезон</a>
 					<ul>
 						<li><a href="#">1</a></li>
 					</ul>
-				</li>
+				</li>-->
 				<li><a href="#">Вверх обуви</a>
 					<ul>
-						<li><a href="#">1</a></li>
+						<c:forEach items="${um}" var="ums">
+							<li><a href="?upperId=${ums.id}">${ums.upper_material}</a></li>
+						</c:forEach>
 					</ul>
 				</li>
 				<li><a href="#">Материал подкладки</a>
 					<ul>
-						<li><a href="#">1</a></li>
+						<c:forEach items="${lm}" var="lms">
+							<li><a href="?linerId=${lms.id}">${lms.liner_material}</a></li>
+						</c:forEach>
 					</ul>
 				</li>
 			</ul>

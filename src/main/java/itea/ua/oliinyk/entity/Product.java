@@ -29,7 +29,11 @@ import itea.ua.oliinyk.entity.categories.Upper_Material;
 @Table(name = "products")
 @NamedQueries({ @NamedQuery(name = "Product.All", query = "SELECT products FROM Product products"),
 		@NamedQuery(name = "Product.getProdByGender", query = "SELECT products FROM Product products WHERE products.genders = :gender"),
+		@NamedQuery(name = "Product.getProdByCategory", query = "SELECT products FROM Product products WHERE products.categories = :category"),
 		@NamedQuery(name = "Product.getProdByBrand", query = "SELECT products FROM Product products WHERE products.brand = :brand"),
+		@NamedQuery(name = "Product.getProdByLinMat", query = "SELECT products FROM Product products WHERE products.liner_material = :liner_material"),
+		@NamedQuery(name = "Product.getProdBySize", query = "SELECT products FROM Product products WHERE products.size = :size"),
+		@NamedQuery(name = "Product.getProdByUpMat", query = "SELECT products FROM Product products WHERE products.upper_material = :upper_material"),
 		@NamedQuery(name = "Product.getProdByGender&Brand", query = "SELECT products FROM Product products WHERE products.brand = :brand AND products.genders = :gender")
 	})
 public class Product implements ShopEntity {
@@ -151,6 +155,11 @@ public class Product implements ShopEntity {
 		return "Product [id=" + id + ", brand=" + brand + ", genders=" + genders
 				+ ", liner_material=" + liner_material + ", upper_material=" + upper_material + ", categories="
 				+ categories + ", model=" + model + ", price=" + price + "]";
+	}
+
+	@Override
+	public String getStringId() {
+		return id.toString();
 	}
 
 }

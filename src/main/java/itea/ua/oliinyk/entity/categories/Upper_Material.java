@@ -15,11 +15,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import itea.ua.oliinyk.entity.Product;
+import itea.ua.oliinyk.entity.ShopEntity;
 
 @Entity
 @Table(name = "upper_materials")
 @NamedQueries({ @NamedQuery(name = "Upper_Material.All", query = "SELECT um FROM Upper_Material um") })
-public class Upper_Material {
+public class Upper_Material implements ShopEntity, Comparable<Upper_Material> {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,6 +39,24 @@ public class Upper_Material {
 
 	public void setUpper_material(String upper_material) {
 		this.upper_material = upper_material;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	@Override
+	public int compareTo(Upper_Material um) {
+		return getUpper_material().compareTo(um.getUpper_material());
+	}
+
+	@Override
+	public String getStringId() {
+		return id;
 	}
 
 }

@@ -206,4 +206,9 @@ public class User implements ShopEntity {
 				+ gender + ", success=" + success + "]";
 	}
 
+	@Override
+	public String getStringId() {
+		return id.toString();
+	}
+
 }

@@ -22,7 +22,7 @@ import itea.ua.oliinyk.entity.ShopEntity;
 @NamedQueries({
         @NamedQuery(name = "Category.All", query = "SELECT category FROM Category category")
 })
-public class Category implements ShopEntity {
+public class Category implements ShopEntity, Comparable<Category> {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -43,10 +43,24 @@ public class Category implements ShopEntity {
 		this.categories = categories;
 	}
 
-	@Override
-	public Integer getId() {
-		return null;
+	public void setId(String id) {
+		this.id = id;
 	}
+
+	public String getId() {
+		return id;
+	}
+
+	@Override
+	public String getStringId() {
+		return id;
+	}
+
+	@Override
+	public int compareTo(Category category) {
+		return getCategories().compareTo(category.getCategories());
+	}
+
 	
     
 }

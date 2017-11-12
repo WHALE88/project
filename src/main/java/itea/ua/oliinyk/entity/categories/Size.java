@@ -17,11 +17,12 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import itea.ua.oliinyk.entity.Product;
+import itea.ua.oliinyk.entity.ShopEntity;
 
 @Entity
 @Table(name = "size")
 @NamedQueries({ @NamedQuery(name = "Size.All", query = "SELECT size FROM Size size") })
-public class Size {
+public class Size implements ShopEntity, Comparable<Size>{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -93,6 +94,16 @@ public class Size {
 	@Override
 	public String toString() {
 		return "Size [id=" + id + ", size=" + size + "]";
+	}
+
+	@Override
+	public int compareTo(Size s2) {
+		return getSize().compareTo(s2.getSize());
+	}
+
+	@Override
+	public String getStringId() {
+		return id.toString();
 	}
 
 }
