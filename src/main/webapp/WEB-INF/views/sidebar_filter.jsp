@@ -29,7 +29,9 @@
 				</li>
 				<li><a href="#">Размер</a>
 					<ul>
-						<li><a href="#">1</a></li>
+						<c:forEach items="${size}" var="sizes">
+							<li><a href="?sizeId=${sizes.id}">${sizes.size}</a></li>
+						</c:forEach>
 					</ul>
 				</li>
 				<li><a href="#">Бренд</a>

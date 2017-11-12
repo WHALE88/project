@@ -7,7 +7,7 @@ public class SizeDAO extends AbstractDAO<Size> {
 		super();
 	}
 
-	public Size getBrandById(String id) {
+	public Size getSizeById(Integer id) {
 		return super.getEntityById(Size.class, id);
 	}
 
