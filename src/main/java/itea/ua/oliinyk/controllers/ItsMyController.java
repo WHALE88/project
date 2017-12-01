@@ -11,7 +11,7 @@ public class ItsMyController {
 
 	@RequestMapping(method=RequestMethod.GET)
 	public String printMyMessage(ModelMap model) {
-		model.addAttribute("mymessage", "Tarass");
+		model.addAttribute("mymessage", "Test");
 		return "mypage";
 	}
 }

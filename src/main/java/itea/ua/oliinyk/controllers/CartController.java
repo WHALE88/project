@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import itea.ua.oliinyk.entity.Cart;
@@ -22,16 +23,15 @@ public class CartController {
 
 	@RequestMapping(value = "/addTocart", method = RequestMethod.POST)
 	@ResponseBody
-	public String addProductToCart(ModelMap model, @RequestParam("product") String json) {
-
+	public String addProductToCart(ModelMap model, @RequestParam("product") String json, @SessionAttribute(value = "user", required = false) User user) {
+		
 		Cart cart = (Cart) model.get("cart");
-		User user = (User) model.get("user");
 		if (cart == null) {
 			cart = new Cart();
 		}
 
 		Date dateNow = new Date();
-		SimpleDateFormat formatForDateNow = new SimpleDateFormat("E yyyy.MM.dd ' ' hh:mm:ss a zzz");
+		SimpleDateFormat formatForDateNow = new SimpleDateFormat("yyyy.MM.dd ' ' hh:mm:ss a zzz");
 
 		Order order_product = new Order();
 		JSONObject jsonObj = new JSONObject(json);

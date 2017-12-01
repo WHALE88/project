@@ -19,7 +19,7 @@ public class Order implements ShopEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
-	public Integer id;
+	public Long id;
 	
 	@Column(name = "product_id", nullable = false)
 	public int product_id;
@@ -55,7 +55,7 @@ public class Order implements ShopEntity {
 
 	}
 
-	public Order(Integer id, int product_id, String product_brand, String product_model, int product_size,
+	public Order(Long id, int product_id, String product_brand, String product_model, int product_size,
 			Integer product_price, Integer product_quantity, String username, String user_email,
 			String user_phonenumber, String date) {
 		this.id = id;
@@ -79,11 +79,11 @@ public class Order implements ShopEntity {
 		return totalAmount;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

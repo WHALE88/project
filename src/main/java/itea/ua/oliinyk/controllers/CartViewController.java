@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import itea.ua.oliinyk.dao.OrderDAO;
 import itea.ua.oliinyk.entity.Cart;
@@ -21,18 +22,23 @@ public class CartViewController {
 	}
 
 	@RequestMapping(value = "/confirm", method = RequestMethod.GET)
-	public String confirmation(ModelMap model) {
-		Cart cart = (Cart) model.get("cart");
-		User user = (User) model.get("user");
+	public String confirmation(ModelMap model, @SessionAttribute(value = "user", required = false) User user,
+			@SessionAttribute(value = "cart", required = false) Cart cart) {
 		OrderDAO orderDAO = new OrderDAO();
-		if (cart != null && user != null)
-			for (Order prod : cart.getProducts()) {
-				orderDAO.add(prod);
-			}
-
-		else {
+		if (cart == null || user == null) {
 			model.addAttribute("message", "Для покупки нужно авторизоваться");
+			return "confirm";
 		}
+		for (Order prod : cart.getProducts()) {
+			if (prod.getUsername() == null) {
+				prod.setUsername(user.getName());
+				prod.setUser_email(user.getEmail());
+				prod.setUser_phonenumber(user.getPhonenumber());
+			}
+			orderDAO.add(prod);
+		}
+		cart.getProducts().clear();
+		model.addAttribute("message", "Товар приобретен");
 		return "confirm";
 	}
 }
