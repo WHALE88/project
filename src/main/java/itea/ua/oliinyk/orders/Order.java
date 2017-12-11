@@ -19,22 +19,22 @@ public class Order implements ShopEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
-	public Long id;
+	private Long id;
 	
 	@Column(name = "product_id", nullable = false)
-	public int product_id;
+	private int product_id;
 	
 	@Column(name = "product_brand", nullable = false)
-	public String product_brand;
+	private String product_brand;
 	
 	@Column(name = "product_model", nullable = false)
-	public String product_model;
+	private String product_model;
 	
 	@Column(name = "product_size", nullable = false)
-	public int product_size;
+	private int product_size;
 	
 	@Column(name = "product_price", nullable = false)
-	public Integer product_price;
+	private Integer product_price;
 	
 	@Column(name = "product_quantity", nullable = false)
 	private Integer product_quantity;

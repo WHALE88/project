@@ -1,6 +1,9 @@
 package itea.ua.oliinyk.controllers;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 import org.apache.velocity.VelocityContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,27 +40,32 @@ public class CartViewController {
 			model.addAttribute("message", "Для покупки нужно авторизоваться");
 			return "confirm";
 		}
+		List<Order> orderList = new ArrayList<>();
 		for (Order prod : cart.getProducts()) {
 			if (prod.getUsername() == null) {
 				prod.setUsername(user.getName());
 				prod.setUser_email(user.getEmail());
 				prod.setUser_phonenumber(user.getPhonenumber());
 			}
-			orderDAO.add(prod);
+			orderDAO.add(prod); // SAVE IN DAO
+			orderList.add(prod);  // ADD TO THE ARRAY
 		}
-		cart.getProducts().clear();
 		
+		Date dateNow = new Date();
+		SimpleDateFormat formatForDateNow = new SimpleDateFormat("yyyy.MM.dd ' ' hh:mm:ss a zzz");
+
 		VelocityContext velocityContext = new VelocityContext();
 		velocityContext.put(EmailService.FROM, "maksim12288@gmail.com");
-		velocityContext.put(EmailService.SUBJECT, "Hello from " + user.getName() + "!");
+		velocityContext.put(EmailService.SUBJECT, "Магазин детской обуви|Oliinyk Store");
 		velocityContext.put(EmailService.TO, user.getEmail());
 		velocityContext.put(EmailService.CCC_LIST, new ArrayList<>());
 		velocityContext.put(EmailService.BCC_LIST, new ArrayList<>());
-		velocityContext.put("userName", "MyStor");
-		velocityContext.put("urljavastudy", "accopmu.com.ua");
-		velocityContext.put("message", "My message ----");
+		velocityContext.put("date", formatForDateNow.format(dateNow));
+		velocityContext.put("myurl", "www.google.com.ua");
+		velocityContext.put("orders", orderList);
 		boolean rr = emailService.sendEmail("registered.vm", velocityContext);
-		model.addAttribute("message", "Товар приобретен "+ rr +"");
+		cart.getProducts().clear();
+		model.addAttribute("message", "Товар приобретен " + rr + "");
 		return "confirm";
 	}
 }

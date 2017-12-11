@@ -34,17 +34,34 @@
                     </tr>
                     <tr>
                         <td style="font-size: 12px; font-family: arial, sans-serif; color: #000000; text-align: left;">
-                            <a href="$urljavastudy">Oliinyk Store</a>
+                            <a href="$myurl">Oliinyk Store</a>
                             <br /><br />
-
-                            User name parameter from EmailController -  $userName
-
+     
                             <br /></td>
                     </tr>
                     <tr>
                         <td>
                             <h2>Заказ:</h2>
-                            ${message}
+                         <table width="400" border="1" cellpadding="4" cellspacing="0">
+                            #foreach ($myVar in $orders)
+	               				     <tr>
+										  <th>Товар</th>
+										  <th>Количество</th>
+										  <th>Цена</th>
+									 </tr>
+									 <tr>
+										  <td> $myVar.product_brand $myVar.product_model</td>
+										  <td rowspan="3" align="center">$myVar.product_quantity</td>
+										  <td rowspan="3" align="center">$myVar.product_price</td>
+									 </tr>
+									 <tr>
+										 <td> Артикул: $myVar.product_id</td>
+									 </tr>
+									  <tr>
+										<td> Размер: $myVar.product_size</td>
+									 </tr>
+							#end
+						 </table>
                         </td>
                     </tr>
                     </tbody>
@@ -57,7 +74,7 @@
                     <tbody>
                     <tr>
                         <td style="font-size: 15px; font-family: arial, sans-serif; color: #a3a3a3;">
-                            <div style="margin: 0 7px;">ДАТА</div></td>
+                            <div style="margin: 0 7px;">$date</div></td>
                     </tr>
                     </tbody>
                 </table>

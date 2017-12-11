@@ -54,7 +54,7 @@
 	<!-- Java Mail Configuration -->
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<property name="username" value="real@gmail.com" />
-		<property name="password" value="my_password" />
+		<property name="password" value="realPassword" />
 		<property name="port" value="465" />
 		<property name="javaMailProperties">
 			<props>

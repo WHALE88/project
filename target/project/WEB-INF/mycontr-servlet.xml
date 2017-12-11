@@ -53,8 +53,8 @@
 
 	<!-- Java Mail Configuration -->
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-		<property name="username" value="maksim12288@gmail.com" />
-		<property name="password" value="JustDoItLk88n165feuknj" />
+		<property name="username" value="real@gmail.com" />
+		<property name="password" value="realPassword" />
 		<property name="port" value="465" />
 		<property name="javaMailProperties">
 			<props>
