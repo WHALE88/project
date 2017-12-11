@@ -13,7 +13,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>4.3.10.RELEASE</version>
+			<version>4.3.12.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -61,6 +61,24 @@
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
 			<version>20170516</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context-support -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>4.3.12.RELEASE</version>
+		</dependency>
+		<!-- Spring MVC Mail Related Dependency -->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.7</version>
+        </dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.velocity/velocity -->
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity</artifactId>
+			<version>1.7</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>

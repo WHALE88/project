@@ -2,6 +2,8 @@ package itea.ua.oliinyk.controllers;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
@@ -13,8 +15,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import itea.ua.oliinyk.dao.ProductDAO;
+import itea.ua.oliinyk.dao.SizeDAO;
 import itea.ua.oliinyk.entity.Cart;
+import itea.ua.oliinyk.entity.Product;
 import itea.ua.oliinyk.entity.User;
+import itea.ua.oliinyk.entity.categories.Size;
 import itea.ua.oliinyk.orders.Order;
 
 @Controller
@@ -35,6 +41,14 @@ public class CartController {
 
 		Order order_product = new Order();
 		JSONObject jsonObj = new JSONObject(json);
+		
+		ProductDAO prodDao = new ProductDAO();
+		Product product = prodDao.getEntityById(Product.class, jsonObj.getInt("id"));
+		Set<Size> size = new HashSet<>();
+		Size s = new SizeDAO().getEntityById(Size.class, jsonObj.getInt("size"));
+		size.add(s);
+		product.setSize(size);
+		
 		order_product.setProduct_id(jsonObj.getInt("id"));
 		order_product.setProduct_brand(jsonObj.getString("brand"));
 		order_product.setProduct_model(jsonObj.getString("model"));

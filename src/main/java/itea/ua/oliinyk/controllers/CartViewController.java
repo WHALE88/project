@@ -1,5 +1,9 @@
 package itea.ua.oliinyk.controllers;
 
+import java.util.ArrayList;
+
+import org.apache.velocity.VelocityContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,9 +14,13 @@ import itea.ua.oliinyk.dao.OrderDAO;
 import itea.ua.oliinyk.entity.Cart;
 import itea.ua.oliinyk.entity.User;
 import itea.ua.oliinyk.orders.Order;
+import itea.ua.oliinyk.service.EmailService;
 
 @Controller
 public class CartViewController {
+	@Autowired
+	EmailService emailService;
+
 	@RequestMapping(value = "/cart", method = RequestMethod.GET)
 	public String view(ModelMap model) {
 		Cart cart = (Cart) model.get("cart");
@@ -38,7 +46,18 @@ public class CartViewController {
 			orderDAO.add(prod);
 		}
 		cart.getProducts().clear();
-		model.addAttribute("message", "Товар приобретен");
+		
+		VelocityContext velocityContext = new VelocityContext();
+		velocityContext.put(EmailService.FROM, "maksim12288@gmail.com");
+		velocityContext.put(EmailService.SUBJECT, "Hello from " + user.getName() + "!");
+		velocityContext.put(EmailService.TO, user.getEmail());
+		velocityContext.put(EmailService.CCC_LIST, new ArrayList<>());
+		velocityContext.put(EmailService.BCC_LIST, new ArrayList<>());
+		velocityContext.put("userName", "MyStor");
+		velocityContext.put("urljavastudy", "accopmu.com.ua");
+		velocityContext.put("message", "My message ----");
+		boolean rr = emailService.sendEmail("registered.vm", velocityContext);
+		model.addAttribute("message", "Товар приобретен "+ rr +"");
 		return "confirm";
 	}
 }
