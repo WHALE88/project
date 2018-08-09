@@ -1,11 +1,11 @@
 package itea.ua.oliinyk.validation;
 
+import itea.ua.oliinyk.validation.myannotation.CheckCase;
+import itea.ua.oliinyk.validation.myannotation.MyCaseMode;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.validation.constraints.Size.List;
-
-import itea.ua.oliinyk.validation.myannotation.CheckCase;
-import itea.ua.oliinyk.validation.myannotation.MyCaseMode;
 
 public class LogValidator {
 	@CheckCase(MyCaseMode.BACKSPACE)
