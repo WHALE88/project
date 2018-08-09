@@ -17,11 +17,11 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-@Controller
+@RestController
 @SessionAttributes("cart")
 public class CartController {
 
-  @RequestMapping(value = "/addTocart", method = RequestMethod.POST)
+  @PostMapping(path = "/addTocart")
   @ResponseBody
   public String addProductToCart(ModelMap model, @RequestParam("product") String json, @SessionAttribute(value = "user", required = false) User user) {
 
@@ -72,7 +72,7 @@ public class CartController {
     return response.toString();
   }
 
-  @RequestMapping(value = "/removeFromCart", method = RequestMethod.POST)
+  @PostMapping(path = "/removeFromCart")
   @ResponseBody
   public String deleteProductFromCart(ModelMap model, @RequestParam("product") String json) {
     Cart cart = (Cart) model.get("cart");

@@ -8,15 +8,15 @@
 		<class>itea.ua.oliinyk.entity.User</class>
 		<class>itea.ua.oliinyk.entity.Product</class>
 		<class>itea.ua.oliinyk.entity.categories.Brand</class>
-		<class>itea.ua.oliinyk.entity.categories.Categories</class>
+		<class>itea.ua.oliinyk.entity.categories.Category</class>
 		<class>itea.ua.oliinyk.entity.categories.Liner_Material</class>
 		<class>itea.ua.oliinyk.entity.categories.Upper_Material</class>
-		<class>itea.ua.oliinyk.categories.entity.Size</class>
+		<class>itea.ua.oliinyk.entity.categories.Size</class>
 		<class>itea.ua.oliinyk.entity.categories.Gender</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.user" value="root" />
-			<property name="javax.persistence.jdbc.password" value="" />
+			<property name="javax.persistence.jdbc.password" value="root" />
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/shop" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />

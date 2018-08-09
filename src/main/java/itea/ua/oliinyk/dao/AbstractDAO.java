@@ -18,11 +18,11 @@ public abstract class AbstractDAO<E extends ShopEntity> implements DAO<E> {
 		em = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME).createEntityManager();
 	}
 
-	public EntityManager getEntityManager() {
+	EntityManager getEntityManager() {
 		return em;
 	}
 
-	public EntityTransaction getEntityTransaction() {
+	EntityTransaction getEntityTransaction() {
 		return em.getTransaction();
 	}
 
@@ -50,21 +50,18 @@ public abstract class AbstractDAO<E extends ShopEntity> implements DAO<E> {
 
 	@Override
 	public E getEntityById(Class<E> entityClass, int id) {
-		E entity = getEntityManager().find(entityClass, id);
-		return entity;
+		return getEntityManager().find(entityClass, id);
 	}
 	
 	@Override
 	public E getEntityById(Class<E> entityClass, String id) {
-		E entity = getEntityManager().find(entityClass, id);
-		return entity;
+		return getEntityManager().find(entityClass, id);
 	}
 
 	@Override
 	public List<E> getListAll(Class<E> entityClass) {
-		List<E> result = getEntityManager().createNamedQuery(entityClass.getSimpleName() + ".All", entityClass)
+		return getEntityManager().createNamedQuery(entityClass.getSimpleName() + ".All", entityClass)
 				.getResultList();
-		return result;
 	}
 
 }
