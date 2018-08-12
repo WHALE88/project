@@ -5,14 +5,14 @@
 	<persistence-unit name="myEntityManager"
 		transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-		<class>itea.ua.oliinyk.entity.User</class>
-		<class>itea.ua.oliinyk.entity.Product</class>
-		<class>itea.ua.oliinyk.entity.categories.Brand</class>
-		<class>itea.ua.oliinyk.entity.categories.Category</class>
-		<class>itea.ua.oliinyk.entity.categories.Liner_Material</class>
-		<class>itea.ua.oliinyk.entity.categories.Upper_Material</class>
-		<class>itea.ua.oliinyk.entity.categories.Size</class>
-		<class>itea.ua.oliinyk.entity.categories.Gender</class>
+		<class>ua.com.oliinyk.entity.User</class>
+		<class>ua.com.oliinyk.entity.Product</class>
+		<class>ua.com.oliinyk.entity.categories.Brand</class>
+		<class>ua.com.oliinyk.entity.categories.Category</class>
+		<class>ua.com.oliinyk.entity.categories.Liner_Material</class>
+		<class>ua.com.oliinyk.entity.categories.Upper_Material</class>
+		<class>ua.com.oliinyk.entity.categories.Size</class>
+		<class>ua.com.oliinyk.entity.categories.Gender</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.user" value="root" />

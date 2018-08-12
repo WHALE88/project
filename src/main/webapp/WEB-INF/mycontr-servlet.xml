@@ -9,7 +9,7 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<context:component-scan base-package="itea.ua.oliinyk.*" />
+	<context:component-scan base-package="ua.com.oliinyk.*" />
 
 	<mvc:annotation-driven />
 	<mvc:resources mapping="/resources/**" location="/resources/" />
@@ -17,7 +17,7 @@
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/*" />
-			<bean class="itea.ua.oliinyk.interceptors.CheckUserInterceptor" />
+			<bean class="ua.com.oliinyk.interceptors.CheckUserInterceptor" />
 		</mvc:interceptor>
 		<mvc:interceptor>
 			<mvc:mapping path="/*" />
