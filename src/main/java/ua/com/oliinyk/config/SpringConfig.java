@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Import;
 @Configuration
 @Import({
     BaseSpringConfig.class,
+    PersistenceConfig.class,
     HibernateConfig.class
 })
 public class SpringConfig {

@@ -13,6 +13,7 @@ ua\com\oliinyk\dao\UserDAO.class
 ua\com\oliinyk\dao\ProductDAO.class
 ua\com\oliinyk\entity\categories\Gender.class
 ua\com\oliinyk\entity\ShopEntity.class
+ua\com\oliinyk\config\PersistenceConfig.class
 ua\com\oliinyk\orders\Order.class
 ua\com\oliinyk\validation\myannotation\CheckCase.class
 ua\com\oliinyk\dao\SizeDAO.class
@@ -41,6 +42,7 @@ ua\com\oliinyk\config\HibernateConfig.class
 ua\com\oliinyk\md5\MD5.class
 ua\com\oliinyk\dao\Upper_Material_DAO.class
 ua\com\oliinyk\dao\BrandDAO.class
+ua\com\oliinyk\config\BaseSpringConfig.class
 ua\com\oliinyk\controllers\RegistrationController.class
 ua\com\oliinyk\interceptors\CheckUserInterceptor.class
 ua\com\oliinyk\service\EmailService$1.class
