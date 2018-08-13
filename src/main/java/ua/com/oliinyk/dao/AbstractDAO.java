@@ -1,34 +1,38 @@
 package ua.com.oliinyk.dao;
 
+import lombok.extern.slf4j.Slf4j;
+import org.hibernate.SessionFactory;
 import ua.com.oliinyk.dao.interfaces.DAO;
 import ua.com.oliinyk.entity.ShopEntity;
 
+import javax.annotation.Resource;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
 import java.util.List;
 
+@Slf4j(topic = "abstractDao")
 public abstract class AbstractDAO<E extends ShopEntity> implements DAO<E> {
 
-	private final String PERSISTENCE_UNIT_NAME = "myEntityManager";
-	private EntityManager em;
+  @Resource
+	private SessionFactory sessionFactory;
 
 	public AbstractDAO() {
-		em = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME).createEntityManager();
 	}
 
 	EntityManager getEntityManager() {
-		return em;
+	  log.info("get current session");
+		return sessionFactory.getCurrentSession();
 	}
 
 	EntityTransaction getEntityTransaction() {
-		return em.getTransaction();
+    log.info("get transaction manager");
+    return getEntityManager().getTransaction();
 	}
 
 	@Override
 	public void close() {
-		if (em != null) {
-			em.close();
+		if (sessionFactory != null) {
+			sessionFactory.close();
 		}
 	}
 

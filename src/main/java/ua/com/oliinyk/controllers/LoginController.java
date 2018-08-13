@@ -7,6 +7,7 @@ import ua.com.oliinyk.validation.LogValidator;
 import org.springframework.context.MessageSource;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -17,8 +18,8 @@ import javax.persistence.NoResultException;
 import javax.validation.Valid;
 import java.util.Locale;
 
-//import org.apache.commons.lang3.StringUtils;
 
+@Slf4j(topic = "loginController")
 @Controller
 @SessionAttributes("user")
 public class LoginController {
@@ -38,6 +39,7 @@ public class LoginController {
     if (validator == null) {
       validator = new LogValidator();
       model.addAttribute("validator", validator);
+      log.debug("Creating validator: {}", validator);
     }
     return "login";
   }
