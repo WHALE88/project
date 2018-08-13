@@ -1,13 +1,12 @@
 package ua.com.oliinyk.dao;
 
-import java.util.List;
+import ua.com.oliinyk.dao.interfaces.DAO;
+import ua.com.oliinyk.entity.ShopEntity;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-
-import ua.com.oliinyk.dao.interfaces.DAO;
-import ua.com.oliinyk.entity.ShopEntity;
+import java.util.List;
 
 public abstract class AbstractDAO<E extends ShopEntity> implements DAO<E> {
 
