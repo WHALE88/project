@@ -3,23 +3,35 @@
         "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
 
-    <appender name="Appender1" class="org.apache.log4j.ConsoleAppender">
+    <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
         <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="%-7p %d [%t] %c %x - %m%n"/>
+            <param name="ConversionPattern"
+                   value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n" />
         </layout>
     </appender>
 
-    <appender name="Appender2" class="org.apache.log4j.FileAppender">
+    <appender name="FILE_APPENDER" class="org.apache.log4j.FileAppender">
         <param name="File" value="./Log4jSpringMvcEx/logs/springmvc.log"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="%-7p %d [%t] %c %x - %m%n"/>
         </layout>
     </appender>
 
+    <logger name="org.hibernate">
+        <!--Choose second for debug SQL querries-->
+        <level value="INFO"/>
+        <!--<level value="DEBUG"/>-->
+    </logger>
+
+    <logger name="ua.com">
+        <level value="INFO"/>
+        <!--<level value="DEBUG"/>-->
+    </logger>
+
     <root>
         <level value="INFO"/>
-        <appender-ref ref="Appender1"/>
-        <appender-ref ref="Appender2"/>
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE_APPENDER"/>
     </root>
 
 </log4j:configuration>
