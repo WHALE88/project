@@ -24,6 +24,7 @@ ua\com\oliinyk\dao\CategoryDAO.class
 ua\com\oliinyk\controllers\ItsMyController.class
 ua\com\oliinyk\entity\categories\Liner_Material.class
 ua\com\oliinyk\validation\LogValidator.class
+ua\com\oliinyk\config\SpringConfig.class
 ua\com\oliinyk\controllers\ProductController.class
 ua\com\oliinyk\validation\Verification.class
 ua\com\oliinyk\service\EmailService.class

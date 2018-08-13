@@ -1,9 +1,10 @@
 package ua.com.oliinyk.config;
 
+import com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource;
+import liquibase.integration.spring.SpringLiquibase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -47,12 +48,11 @@ public class HibernateConfig {
     return sessionFactory;
   }
 
-  @Bean
+  @Bean(name = "dataSource")
   public DataSource dataSource() {
-    DriverManagerDataSource dataSource = new DriverManagerDataSource();
-    dataSource.setDriverClassName(environment.getRequiredProperty("javax.persistence.jdbc.driver"));
+    MysqlConnectionPoolDataSource dataSource = new MysqlConnectionPoolDataSource();
     dataSource.setUrl(environment.getRequiredProperty("javax.persistence.jdbc.url"));
-    dataSource.setUsername(environment.getRequiredProperty("javax.persistence.jdbc.username"));
+    dataSource.setUser(environment.getRequiredProperty("javax.persistence.jdbc.username"));
     dataSource.setPassword(environment.getRequiredProperty("javax.persistence.jdbc.password"));
     return dataSource;
   }
@@ -74,6 +74,16 @@ public class HibernateConfig {
     properties.put(C3P0_IDLE_TEST_PERIOD, environment.getProperty("hibernate.c3p0.idle_test_period"));
 
     return properties;
+  }
+
+
+
+  @Bean(name = "liquibase")
+  public SpringLiquibase liquibase (DataSource dataSource){
+    SpringLiquibase liquibase = new SpringLiquibase();
+    liquibase.setDataSource(dataSource);
+    liquibase.setChangeLog("classpath:db/changelog/db.changelog-master.xml");
+    return liquibase;
   }
 
   @Bean
