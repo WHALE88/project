@@ -39,7 +39,6 @@ public class LoginController {
     if (validator == null) {
       validator = new LogValidator();
       model.addAttribute("validator", validator);
-      log.debug("Creating validator: {}", validator);
     }
     return "login";
   }
@@ -55,7 +54,7 @@ public class LoginController {
     return "STRONG";
   }
 
-  @PostMapping(path="/login")
+  @PostMapping(path = "/login")
   public ModelAndView checkUser(Locale locale, @Valid @ModelAttribute("validator") LogValidator validator, BindingResult bindingResult,
                                 ModelMap model) {
     ModelAndView modelAndView = new ModelAndView();

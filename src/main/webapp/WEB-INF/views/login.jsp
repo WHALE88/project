@@ -33,7 +33,7 @@
 			<h3><spring:message code="enter_data"/></h3> 
 		</div>
         <div class="col col_2">
-			<form:form method="POST" commandName="validator" action="login">
+			<form:form method="POST" modelAttribute="validator" action="login">
 							<table>
 								<tr>
 									<td><label><spring:message code="login"/>:</label> </td>
