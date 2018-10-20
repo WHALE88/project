@@ -4,9 +4,11 @@ D:\IntelliJIDEA-workspace\project\src\main\java\ua\com\oliinyk\validation\RegVal
 D:\IntelliJIDEA-workspace\project\src\main\java\ua\com\oliinyk\dao\AbstractDAO.java
 D:\IntelliJIDEA-workspace\project\src\main\java\ua\com\oliinyk\dao\GenderDAO.java
 D:\IntelliJIDEA-workspace\project\src\main\java\ua\com\oliinyk\entity\categories\Brand.java
+D:\IntelliJIDEA-workspace\project\src\main\java\ua\com\oliinyk\config\PersistenceConfig.java
 D:\IntelliJIDEA-workspace\project\src\main\java\ua\com\oliinyk\validation\myannotation\CheckCase.java
 D:\IntelliJIDEA-workspace\project\src\main\java\ua\com\oliinyk\controllers\CartViewController.java
 D:\IntelliJIDEA-workspace\project\src\main\java\ua\com\oliinyk\controllers\ProductDetailsController.java
+D:\IntelliJIDEA-workspace\project\src\main\java\ua\com\oliinyk\config\BaseSpringConfig.java
 D:\IntelliJIDEA-workspace\project\src\main\java\ua\com\oliinyk\entity\ShopEntity.java
 D:\IntelliJIDEA-workspace\project\src\main\java\ua\com\oliinyk\dao\SizeDAO.java
 D:\IntelliJIDEA-workspace\project\src\main\java\ua\com\oliinyk\controllers\RegistrationController.java
@@ -33,6 +35,7 @@ D:\IntelliJIDEA-workspace\project\src\main\java\ua\com\oliinyk\validation\LogVal
 D:\IntelliJIDEA-workspace\project\src\main\java\ua\com\oliinyk\interceptors\CheckUserInterceptor.java
 D:\IntelliJIDEA-workspace\project\src\main\java\ua\com\oliinyk\validation\myannotation\CheckCaseList.java
 D:\IntelliJIDEA-workspace\project\src\main\java\ua\com\oliinyk\dao\Upper_Material_DAO.java
+D:\IntelliJIDEA-workspace\project\src\main\java\ua\com\oliinyk\config\SpringConfig.java
 D:\IntelliJIDEA-workspace\project\src\main\java\ua\com\oliinyk\validation\Verification.java
 D:\IntelliJIDEA-workspace\project\src\main\java\ua\com\oliinyk\entity\User.java
 D:\IntelliJIDEA-workspace\project\src\main\java\ua\com\oliinyk\dao\ProductDAO.java
